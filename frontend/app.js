@@ -11,13 +11,18 @@ function getWeather() {
             return response.json();
         })
         .then(data => {
-            document.getElementById("city-name").innerText = `City: ${data.name}`;
-            document.getElementById("temperature").innerText = `Temperature: ${data.main.temp}°C`;
-            document.getElementById("weather-description").innerText = `Weather: ${data.weather[0].description}`;
+            const iconCode = data.weather[0].icon;
+            const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            document.getElementById("weather-icon").src = iconUrl;
+            document.getElementById("weather-icon").style.display = "block";
+
+            document.getElementById("temperature").innerText = `${data.main.temp}°C`;
+            document.getElementById("weather-description").innerText = `${data.weather[0].description}`;
+            document.getElementById("feels-like").innerText = `Feels Like: ${data.main.feels_like}°C`;
             document.getElementById("humidity").innerText = `Humidity: ${data.main.humidity}%`;
             document.getElementById("wind").innerText = `Wind: ${data.wind.speed} m/s`;
             document.getElementById("pressure").innerText = `Pressure: ${data.main.pressure} hPa`;
-            document.getElementById("feels-like").innerText = `Feels Like: ${data.main.feels_like}°C`;
         })
         .catch(error => {
             console.error(error);

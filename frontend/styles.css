@@ -1,39 +1,99 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
 }
 
 .weather-app {
     text-align: center;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+.weather-app h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 #city {
-    padding: 10px;
-    width: 200px;
-    margin-bottom: 10px;
+    padding: 15px;
+    width: 80%;
+    max-width: 300px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
 }
 
 button {
-    padding: 10px;
-    background-color: #007BFF;
+    padding: 15px 30px;
+    background-color: #4CAF50;
     color: white;
     border: none;
+    border-radius: 25px;
+    font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
 }
 
-#weather-data {
-    margin-top: 20px;
+.weather-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-icon {
+    width: 120px;
+    height: 120px;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+.temperature {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+#weather-description {
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    /* Remove unnecessary margins */
+    margin: 0; 
+}
+
+#feels-like {
+    font-size: 1.5rem;
+    margin: 10px 0 20px;
+    opacity: 0.9;
+}
+
+.details {
+    font-size: 1rem;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* Compact spacing for additional details */
+.details p {
+    margin: 5px 0; 
 }

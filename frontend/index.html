@@ -11,14 +11,21 @@
         <h1>Weather App</h1>
         <input type="text" id="city" placeholder="Enter city">
         <button onclick="getWeather()">Get Weather</button>
+    
         <div id="weather-data">
-            <p id="city-name"></p>
-            <p id="temperature"></p>
-            <p id="weather-description"></p>
-            <p id="humidity"></p>
-            <p id="wind"></p>
-            <p id="pressure"></p>
+            <div class="weather-main">
+                <div>
+                    <p id="temperature" class="temperature"></p>
+                    <p id="weather-description"></p>
+                </div>
+                <img id="weather-icon" class="weather-icon" src="" alt="Weather Icon" style="display: none;">
+            </div>
             <p id="feels-like"></p>
+            <div class="details">
+                <p id="humidity"></p>
+                <p id="wind"></p>
+                <p id="pressure"></p>
+            </div>
         </div>
     </div>
     <script src="app.js"></script>
