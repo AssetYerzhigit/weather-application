@@ -22,9 +22,34 @@ function getWeather() {
             document.getElementById("humidity").innerText = `Humidity: ${data.main.humidity}%`;
             document.getElementById("wind").innerText = `Wind: ${data.wind.speed} m/s`;
             document.getElementById("pressure").innerText = `Pressure: ${data.main.pressure} hPa`;
+
+            // Fetch and update past searches dynamically
+            getPastSearches();
         })
         .catch(error => {
             console.error(error);
             alert("Failed to fetch weather data. Please check the city name and try again.");
         });
 }
+
+function getPastSearches() {
+    const url = `http://localhost:5000/api/searches`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const searchList = document.getElementById("past-searches-list");
+            searchList.innerHTML = "";
+
+            data.forEach(search => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${search.city} - ${new Date(search.date).toLocaleString()}`;
+                searchList.appendChild(listItem);
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching past searches:", error);
+        });
+}
+
+document.addEventListener("DOMContentLoaded", getPastSearches);
